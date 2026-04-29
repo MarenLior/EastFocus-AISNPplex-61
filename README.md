@@ -15,7 +15,7 @@ The data analysis and model construction were completed in Python. It includes:
 - `generate_demo_data.py`: Script to generate the desensitized dummy dataset (`sample_demo.csv`) to ensure code reproducibility while complying with ethical regulations.
 
 ## Data Availability
-The reference datasets (`1874_continental.csv`, `1874_east_asian.csv`, `continent_3663.csv`, eastasia_957.csv`) are included in the `data/` folder. 
+The reference datasets (`1874_continental.csv`, `1874_east_asian.csv`, `continent_3663.csv`, `eastasia_957.csv`) are included in the `data/` folder. 
 **Note:** Due to ethical regulations, the real genotypes of specific populations (e.g., SNH and ZHG) cannot be published. A dummy dataset (`sample_demo.csv`) is provided in the `data/` directory to demonstrate how the inference and spatial mapping code works. 
 
 ## Requirements
