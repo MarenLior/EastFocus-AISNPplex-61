@@ -23,3 +23,40 @@ To install the required dependencies:
 ```bash
 pip install -r requirements.txt
 
+## Usage
+
+Before running the analysis, ensure your working directory is the root of the cloned repository.
+
+### Step 0: Data Preparation
+If you do not have access to the restricted clinical genotypes (e.g., SNH and ZHG), please generate the synthetic testing dataset first. This ensures the spatial mapping scripts run correctly:
+```bash
+python generate_demo_data.py
+
+Step 1: Marker Selection & Feature Reduction
+Evaluate baseline models and run the SHAP-RFE pipeline to select the optimal core AIM-SNPs.
+
+For the Continental level:
+cd 1_marker_selection/continental/
+python 01_model_evaluation.py
+python 02_shap_rfe.py
+cd ../..
+
+For the East Asian subpopulation level:
+cd 1_marker_selection/east_asia/
+python 01_model_evaluation.py
+python 02_shap_rfe.py
+cd ../..
+
+Step 2: Ancestry Inference (AutoML Pipeline)
+Train the optimized inference models via FLAML and generate advanced confusion matrices and global SHAP summary plots.
+cd 2_ancestry_inference/
+python automl_pipeline.py
+cd ..
+
+Step 3: Spatial Mapping
+Project the testing sample data (sample_demo.csv) onto the reference genetic background using PCA and t-SNE, mapped against predictive probabilities.
+cd 3_spatial_mapping/
+python spatial_projection.py
+cd ..
+
+
